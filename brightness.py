@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import matplotlib.pyplot as mpl
 
 # brightness filter will be based on linear scaling (s = r + b) without a --> not looking to affect contrast directly
 

@@ -7,9 +7,6 @@ import matplotlib.pyplot as mpl
 
 # image file names
 # ./smile_sample_1.tiff
-# ./sample_histogram_equalized.tiff
-# ./brightness/b_plus_10.tiff
-# ./brightness/b_min_10.tiff
 
 file = './smile_sample_1.tiff'
 filename = file.split('/')[-1].split('.tiff')[0]
@@ -35,18 +32,19 @@ def powerLaw(r, g):
     s = s * 255
     return np.clip(s, 0, 255).astype(np.uint8)
 
-gamma = 0.5
+gamma = 1.8
+gamma_record = str(gamma).replace('.', '_')
 
 if gamma < 1:
     log = logTransform(img)
     power_law = powerLaw(img, gamma)
     cv2.imwrite('./log/' + filename + '_log.tiff', log)
-    cv2.imwrite('./powerlaw/' + filename + '_gamma_' + str(gamma) + '.tiff', power_law)
+    cv2.imwrite('./powerlaw/' + filename + '_gamma_' + gamma_record + '.tiff', power_law)
 else: 
     inverse = logInverseTransform(img)
     power_law = powerLaw(img, gamma)
     cv2.imwrite('./inverselog/' + filename + '_inv.tiff', inverse)
-    cv2.imwrite('./powerlaw/' + filename + '_gamma_' + str(gamma) + '.tiff', power_law)
+    cv2.imwrite('./powerlaw/' + filename + '_gamma_' + gamma_record + '.tiff', power_law)
 
 while 1:
     if gamma < 1:

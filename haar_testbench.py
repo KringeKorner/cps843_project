@@ -9,12 +9,25 @@ root_path = os.path.dirname(os.path.abspath(__file__))
 
 # image file names
 # ./smile_sample_1.tiff
-# ./sample_histogram_equalized.tiff
+# ./equalized/smile_sample_1_equalized.tiff
 # ./brightness/b_plus_10.tiff
 # ./brightness/b_min_10.tiff
+# ./log/smile_sample_1_log.tiff
+# ./inverselog/smile_sample_1_inv.tiff
+# ./powerlaw/smile_sample_1_gamma_0_5.tiff
+# ./powerlaw/smile_sample_1_gamma_1_2.tiff
+# ./powerlaw/smile_sample_1_gamma_1_8.tiff
+# ./edges/smile_sample_1_sobel_0_5.tiff
+# ./edges/smile_sample_1_sobel_1_2.tiff
+# ./edges/smile_sample_1_sobel_1_5.tiff
+# ./edges/smile_sample_1_sobel_2.tiff
+# ./edges/smile_sample_1_gaussian_0_5.tiff
+# ./edges/smile_sample_1_gaussian_1_5.tiff
+# ./edges/smile_sample_1_gaussian_3.tiff
+# ./edges/smile_sample_1_gaussian_5.tiff
 
 # conversion
-frame = cv2.imread('./brightness/b_min_10.tiff', cv2.IMREAD_COLOR)
+frame = cv2.imread('./edges/smile_sample_1_sobel_0_5.tiff', cv2.IMREAD_COLOR)
 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 ap = argparse.ArgumentParser()

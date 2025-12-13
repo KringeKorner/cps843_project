@@ -1,16 +1,12 @@
 import cv2
-import numpy as np
-import matplotlib.pyplot as mpl
-import os
 
 # image file names
 # ./smile_sample_1.tiff
-# ./sample_histogram_equalized.tiff
 # ./brightness/b_plus_10.tiff
 # ./brightness/b_min_10.tiff
 
 # Extract histogram for POC
-file = './brightness/b_min_10.tiff'
+file = './smile_sample_1.tiff'
 filename = file.split('/')[-1].split('.tiff')[0]
 
 img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
