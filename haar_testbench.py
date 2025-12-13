@@ -8,10 +8,10 @@ import cv2
 root_path = os.path.dirname(os.path.abspath(__file__))
 
 # image file names
-# smile_sample_1.tiff
-# sample_histogram_equalized.tiff
-# /brightness/b_plus_10.tiff
-# /brightness/b_min_10.tiff
+# ./smile_sample_1.tiff
+# ./sample_histogram_equalized.tiff
+# ./brightness/b_plus_10.tiff
+# ./brightness/b_min_10.tiff
 
 # conversion
 frame = cv2.imread('./brightness/b_min_10.tiff', cv2.IMREAD_COLOR)
