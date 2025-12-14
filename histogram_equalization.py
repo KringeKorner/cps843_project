@@ -4,9 +4,18 @@ import cv2
 # ./smile_sample_1.tiff
 # ./brightness/b_plus_10.tiff
 # ./brightness/b_min_10.tiff
+# ./brightness/b_min_50.tiff
+# ./edges/smile_sample_1_sobel_0_5.tiff
+# ./edges/smile_sample_1_sobel_1_2.tiff
+# ./edges/smile_sample_1_sobel_1_5.tiff
+# ./edges/smile_sample_1_sobel_2.tiff
+# ./edges/smile_sample_1_gaussian_0_5.tiff
+# ./edges/smile_sample_1_gaussian_1_5.tiff
+# ./edges/smile_sample_1_gaussian_3.tiff
+# ./edges/smile_sample_1_gaussian_5.tiff
 
 # Extract histogram for POC
-file = './smile_sample_1.tiff'
+file = './brightness/b_min_50.tiff'
 filename = file.split('/')[-1].split('.tiff')[0]
 
 img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)

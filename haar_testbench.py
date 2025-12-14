@@ -10,13 +10,20 @@ root_path = os.path.dirname(os.path.abspath(__file__))
 # image file names
 # ./smile_sample_1.tiff
 # ./equalized/smile_sample_1_equalized.tiff
+# ./equalized/b_min_50_equalized.tiff
+# ./equalized/smile_sample_1_sobel_1_2_equalized.tiff
+# ./equalized/smile_sample_1_gaussian_1_5_equalized.tiff
+# ./equalized/smile_sample_1_gaussian_3_equalized.tiff
+# ./equalized/smile_sample_1_gaussian_5_equalized.tiff
 # ./brightness/b_plus_10.tiff
 # ./brightness/b_min_10.tiff
+# ./brightness/b_min_50.tiff
 # ./log/smile_sample_1_log.tiff
 # ./inverselog/smile_sample_1_inv.tiff
 # ./powerlaw/smile_sample_1_gamma_0_5.tiff
 # ./powerlaw/smile_sample_1_gamma_1_2.tiff
 # ./powerlaw/smile_sample_1_gamma_1_8.tiff
+# ./powerlaw/smile_sample_1_gamma_2_5.tiff
 # ./edges/smile_sample_1_sobel_0_5.tiff
 # ./edges/smile_sample_1_sobel_1_2.tiff
 # ./edges/smile_sample_1_sobel_1_5.tiff
@@ -27,7 +34,9 @@ root_path = os.path.dirname(os.path.abspath(__file__))
 # ./edges/smile_sample_1_gaussian_5.tiff
 
 # conversion
-frame = cv2.imread('./edges/smile_sample_1_sobel_0_5.tiff', cv2.IMREAD_COLOR)
+file = './equalized/b_min_50_equalized.tiff'
+filename = file.split('/')[-1].split('.tiff')[0]
+frame = cv2.imread(file, cv2.IMREAD_COLOR)
 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 ap = argparse.ArgumentParser()
@@ -70,6 +79,8 @@ for (fX, fY, fW, fH) in faceRects:
 		cv2.rectangle(frame, ptA, ptB, (255, 0, 0), 2)
 	cv2.rectangle(frame, (fX, fY), (fX + fW, fY + fH),
 		(0, 255, 0), 2)
+	
+cv2.imwrite('./results/' + filename + '_result.tiff', frame)
 	
 while(1):
 	cv2.imshow("Frame", frame)

@@ -32,7 +32,7 @@ def powerLaw(r, g):
     s = s * 255
     return np.clip(s, 0, 255).astype(np.uint8)
 
-gamma = 1.8
+gamma = 2.5
 gamma_record = str(gamma).replace('.', '_')
 
 if gamma < 1:

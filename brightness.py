@@ -19,7 +19,7 @@ def linearScaling (r, b, reduction = False):
 reduce = True
 
 # set amount to scale
-brightness = 10
+brightness = 50
 
 linear_scaled = linearScaling(img, brightness, reduce).astype(np.uint8)
 if reduce:
